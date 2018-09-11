@@ -53,7 +53,7 @@ find_package(Boost REQUIRED COMPONENTS locale filesystem system)
 
 ExternalProject_Add(GTest
                     PREFIX "external"
-                    URL "https://github.com/google/googletest/archive/718fd88d8f145c63b8cc134cf8fed92743cc112f.tar.gz"
+                    URL "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
                     CMAKE_ARGS -Dgtest_force_shared_crt=${MSVC_SHARED_RUNTIME}
                     INSTALL_COMMAND "")
 ExternalProject_Get_Property(GTest SOURCE_DIR BINARY_DIR)
@@ -61,14 +61,14 @@ set (GTEST_INCLUDE_DIRS "${SOURCE_DIR}/googletest/include")
 set (GTEST_LIBRARIES "${BINARY_DIR}/googlemock/gtest/${CMAKE_CFG_INTDIR}/${CMAKE_STATIC_LIBRARY_PREFIX}gtest${CMAKE_STATIC_LIBRARY_SUFFIX}")
 
 if (CMAKE_SYSTEM_NAME MATCHES "Windows")
-    set(LOOT_API_URL "https://github.com/loot/loot-api/releases/download/0.13.6/loot_api-0.13.6-0-g958d0cf_dev-win32.7z")
+    set(LOOT_API_URL "https://github.com/loot/loot-api/releases/download/0.13.7/loot_api-0.13.7-0-g3a747b8_dev-win32.7z")
 else()
-    set(LOOT_API_URL "https://github.com/loot/loot-api/releases/download/0.13.6/loot-api.tar.xz")
+    set(LOOT_API_URL "https://github.com/loot/loot-api/releases/download/0.13.7/loot-api.tar.xz")
 endif()
 
 ExternalProject_Add(json
                     PREFIX "external"
-                    URL "https://github.com/nlohmann/json/releases/download/v3.1.2/json.hpp"
+                    URL "https://github.com/nlohmann/json/releases/download/v3.2.0/json.hpp"
                     DOWNLOAD_NO_EXTRACT 1
                     CONFIGURE_COMMAND ""
                     BUILD_COMMAND ""
@@ -98,14 +98,14 @@ ExternalProject_Add(testing-plugins
                     INSTALL_COMMAND "")
 
 IF (CMAKE_SYSTEM_NAME MATCHES "Windows")
-    set(CEF_URL "http://opensource.spotify.com/cefbuilds/cef_binary_3.3325.1758.g9aea513_windows32_minimal.tar.bz2")
-    set(CEF_URL_HASH "9f588580e33cc01fab52a74ec8f811ec448e2b41")
-    set(CEF_PRECOMPILED_BINARIES "libcef.dll" "natives_blob.bin" "snapshot_blob.bin" "d3dcompiler_47.dll" "libEGL.dll" "libGLESv2.dll" "chrome_elf.dll")
+    set(CEF_URL "http://opensource.spotify.com/cefbuilds/cef_binary_3.3440.1806.g65046b7_windows32_minimal.tar.bz2")
+    set(CEF_URL_HASH "cffc227946871d6592f8458daa971899559c133e")
+    set(CEF_PRECOMPILED_BINARIES "libcef.dll" "natives_blob.bin" "snapshot_blob.bin" "v8_context_snapshot.bin" "d3dcompiler_47.dll" "libEGL.dll" "libGLESv2.dll" "chrome_elf.dll")
     set(CEF_LIB libcef${CMAKE_STATIC_LIBRARY_SUFFIX})
 ELSE ()
-    set(CEF_URL "http://opensource.spotify.com/cefbuilds/cef_binary_3.3325.1758.g9aea513_linux64_minimal.tar.bz2")
-    set(CEF_URL_HASH "948e71fdc33ef41038bb83299cbb87c1db1b50d2")
-    set(CEF_PRECOMPILED_BINARIES "libcef.so" "natives_blob.bin" "snapshot_blob.bin" "chrome-sandbox")
+    set(CEF_URL "http://opensource.spotify.com/cefbuilds/cef_binary_3.3440.1806.g65046b7_linux64_minimal.tar.bz2")
+    set(CEF_URL_HASH "defe5a9dde8c5616a193e40d1bc0281b2e7e7529")
+    set(CEF_PRECOMPILED_BINARIES "libcef.so" "natives_blob.bin" "snapshot_blob.bin" "v8_context_snapshot.bin" "chrome-sandbox")
     set(CEF_LIB libcef${CMAKE_SHARED_LIBRARY_SUFFIX})
 ENDIF()
 
@@ -132,7 +132,7 @@ set(CEF_PRECOMPILED_BINARIES_DIR "${SOURCE_DIR}/Release")
 
 ExternalProject_Add(cpptoml
                     PREFIX "external"
-                    URL "https://github.com/skystrife/cpptoml/archive/2051836a96a25e5a2d5283be7f633a157848f15e.tar.gz"
+                    URL "https://github.com/skystrife/cpptoml/archive/v0.1.0.tar.gz"
                     CONFIGURE_COMMAND ""
                     BUILD_COMMAND ""
                     INSTALL_COMMAND "")
@@ -141,7 +141,7 @@ set(CPPTOML_INCLUDE_DIRS "${SOURCE_DIR}/include")
 
 ExternalProject_Add(spdlog
                     PREFIX "external"
-                    URL "https://github.com/gabime/spdlog/archive/v0.17.0.tar.gz"
+                    URL "https://github.com/gabime/spdlog/archive/v1.1.0.tar.gz"
                     CONFIGURE_COMMAND ""
                     BUILD_COMMAND ""
                     INSTALL_COMMAND "")

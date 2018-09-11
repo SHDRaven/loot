@@ -11,7 +11,7 @@
 #include <idplang\spanish.iss>
 
 #define MyAppName "LOOT"
-#define MyAppVersion "0.13.1"
+#define MyAppVersion "0.13.2"
 #define MyAppPublisher "LOOT Team"
 #define MyAppURL "https://loot.github.io"
 #define MyAppExeName "LOOT.exe"
@@ -103,6 +103,8 @@ DestDir: "{app}"; Flags: ignoreversion
 Source: "{#buildir}\Release\natives_blob.bin"; \
 DestDir: "{app}"; Flags: ignoreversion
 Source: "{#buildir}\Release\snapshot_blob.bin"; \
+DestDir: "{app}"; Flags: ignoreversion
+Source: "{#buildir}\Release\v8_context_snapshot.bin"; \
 DestDir: "{app}"; Flags: ignoreversion
 Source: "{#buildir}\Release\resources\l10n\en-US.pak"; \
 DestDir: "{app}\resources\l10n"; Flags: ignoreversion
